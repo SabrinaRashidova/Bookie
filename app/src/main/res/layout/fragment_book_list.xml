@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/bg_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient" />
+
+    <View
+        android:id="@+id/mint_big"
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:background="@drawable/circle_mint"
+        android:translationX="-380dp"
+        android:translationY="300dp"
+        android:clipToOutline="false" />
+
+    <ImageView
+        android:id="@+id/iv_cloud"
+        android:layout_width="120dp"
+        android:layout_height="72dp"
+        android:src="@drawable/cloud_1"
+        android:alpha="0.8"
+        android:layout_gravity="end"
+        android:translationX="-10dp"
+        android:layout_marginTop="50dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Book list"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#3A2A58"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBooks"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+           android:layout_marginTop="40dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintBottom_toTopOf="@id/fabAdd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/book_item" />
+
+        <ImageView
+            android:id="@+id/fabAdd"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="#57BFA3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewBooks"
+            android:layout_marginVertical="24dp"
+            android:layout_marginEnd="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+

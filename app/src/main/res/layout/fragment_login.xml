@@ -5,19 +5,19 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:background="#F9FAFA"
-    tools:context=".ui.RegisterFragment">
+    tools:context=".ui.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-        <View
-            android:id="@+id/vector_6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#4040B59F"
-            />
+<!--        <View-->
+<!--            android:id="@+id/vector_6"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="#4040B59F"-->
+<!--            />-->
 
 
         <ImageView
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create account in"
+            android:text="Welcome to "
             android:textSize="18sp"
             android:textColor="@color/deepIndigo"
             android:layout_marginTop="28dp" />
@@ -43,8 +43,24 @@
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#1A237E"
-            android:layout_marginBottom="28dp" />
+            android:layout_marginTop="12dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best book storage platform for all business and individuals to whose like to read and share"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/deepIndigo"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Login"
+            android:textColor="#1B1D28"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"/>
 
         <EditText
             android:id="@+id/editTextLogin"
@@ -53,9 +69,15 @@
             android:hint="Enter your email"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:inputType="textEmailAddress" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Password"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"/>
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -64,19 +86,9 @@
             android:hint="Create Password"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:inputType="textPassword" />
 
-
-        <EditText
-            android:id="@+id/editTextConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Confirm Password"
-            android:background="@drawable/edittext_bg"
-            android:padding="12dp"
-            android:layout_marginTop="24dp"
-            android:inputType="textPassword" />
     </LinearLayout>
 
     <Button
@@ -86,9 +98,21 @@
         android:text="Submit"
         android:textColor="#fff"
         android:layout_marginTop="24dp"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/txt_register"
         android:layout_marginBottom="28dp"
         android:background = "@drawable/rounded_btn"
         />
+
+    <TextView
+        android:id="@+id/txt_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create an account"
+        android:textSize="16sp"
+        android:textColor="#1B1D28"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
+
+
 
 </RelativeLayout>

@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container_view,
-                RegisterFragment()).commit()
+//        supportFragmentManager.beginTransaction().add(R.id.fragmentContainerView,
+//                RegisterFragment()).commit()
 
     }
 }

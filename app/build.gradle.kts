@@ -46,12 +46,16 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+    implementation(libs.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-//    val fragment_version = "1.8.9"
-//    implementation("androidx.fragment:fragment-ktx:${fragment_version}")
 
+    val room_version = "2.8.2"
+
+    implementation("androidx.room:room-runtime:$room_version")
 
 }
