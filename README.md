@@ -5,7 +5,7 @@ The app has a clean, soft design with cloud-style backgrounds and smooth UI elem
 
 ## 📸 Screenshots
 
-<img width="655" height="771" alt="image" src="https://github.com/user-attachments/assets/fbf2422b-f88e-4298-87fa-2d912c2c289f" />
+<img width="437" height="922" alt="image" src="https://github.com/user-attachments/assets/7f4d5a7a-a6c8-482d-a3e5-fba19b1bb9c1" />
 <img width="436" height="920" alt="image" src="https://github.com/user-attachments/assets/7650caa4-f67e-4ead-a6dd-09835ade08a3" />
 <img width="432" height="917" alt="image" src="https://github.com/user-attachments/assets/425c4238-eade-4b4f-995b-6362f6368b97" />
 
