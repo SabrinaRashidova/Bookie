@@ -5,8 +5,9 @@ The app has a clean, soft design with cloud-style backgrounds and smooth UI elem
 
 ## 📸 Screenshots
 
-### Home Screen
-<img src="screenshots/home_screen.png" width="300"/>
+<img width="655" height="771" alt="image" src="https://github.com/user-attachments/assets/fbf2422b-f88e-4298-87fa-2d912c2c289f" />
+<img width="436" height="920" alt="image" src="https://github.com/user-attachments/assets/7650caa4-f67e-4ead-a6dd-09835ade08a3" />
+<img width="432" height="917" alt="image" src="https://github.com/user-attachments/assets/425c4238-eade-4b4f-995b-6362f6368b97" />
 
-### Book Details Screen
-<img src="screenshots/details_screen.png" width="300"/>
+
+
