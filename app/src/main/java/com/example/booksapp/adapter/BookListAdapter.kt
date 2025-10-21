@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.booksapp.data.Book
 import com.example.booksapp.databinding.BookItemBinding
 
-class BookListAdapter(private val list: List<Book>): RecyclerView.Adapter<BookListAdapter.ViewHolder>(){
+class BookListAdapter(
+    private val list: List<Book>,
+    private val onItemClick: (Book) -> Unit
+    ): RecyclerView.Adapter<BookListAdapter.ViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,6 +30,10 @@ class BookListAdapter(private val list: List<Book>): RecyclerView.Adapter<BookLi
         fun onBind(book: Book){
             binding.txtTitle.text = book.title
             binding.txtAuthor.text = book.author
+
+            binding.root.setOnClickListener {
+                onItemClick(book)
+            }
         }
     }
 

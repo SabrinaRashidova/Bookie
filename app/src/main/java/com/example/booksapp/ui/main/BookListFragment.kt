@@ -1,15 +1,12 @@
 package com.example.booksapp.ui.main
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.booksapp.R
 import com.example.booksapp.adapter.BookListAdapter
-import com.example.booksapp.data.Book
-import com.example.booksapp.databinding.DialogAddBookBinding
 import com.example.booksapp.databinding.FragmentBookListBinding
 import com.example.booksapp.viewmodel.BookViewModel
 
@@ -25,36 +22,21 @@ class BookListFragment : Fragment(R.layout.fragment_book_list) {
         _binding = FragmentBookListBinding.bind(view)
 
         viewmodel.allBooks.observe(viewLifecycleOwner){books ->
-            adapter = BookListAdapter(list = books)
+            adapter = BookListAdapter(list = books){book ->
+                val action = BookListFragmentDirections
+                    .actionBookListFragmentToBookDetailFragment(
+                        title = book.title,
+                        author = book.author,
+                        description = book.description
+                    )
+                findNavController().navigate(action)
+            }
             binding.recyclerViewBooks.adapter = adapter
         }
 
         binding.addBook.setOnClickListener {
-            showAddDialog()
+            findNavController().navigate(R.id.action_bookListFragment_to_addBookFragment)
         }
-
-    }
-
-    private fun showAddDialog() {
-        val dialogBinding = DialogAddBookBinding.inflate(LayoutInflater.from(requireContext()))
-
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("Add new book")
-            .setView(dialogBinding.root)
-            .setPositiveButton("Add") { dialogInterface, _ ->
-                val title = dialogBinding.etTitle.text.toString().trim()
-                val author = dialogBinding.etAuthor.text.toString().trim()
-
-                if (title.isNotEmpty() && author.isNotEmpty()) {
-                    val book = Book(0,title = title, author = author)
-                    viewmodel.insert(book)
-                }
-                dialogInterface.dismiss()
-            }
-            .setNegativeButton("Cancel", null)
-            .create()
-
-        dialog.show()
 
     }
 }

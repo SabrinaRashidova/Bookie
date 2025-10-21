@@ -31,10 +31,31 @@
         <action
             android:id="@+id/action_bookListFragment_to_bookDetailFragment"
             app:destination="@id/bookDetailFragment" />
+        <action
+            android:id="@+id/action_bookListFragment_to_addBookFragment"
+            app:destination="@id/addBookFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookDetailFragment"
         android:name="com.example.booksapp.ui.main.BookDetailFragment"
         android:label="fragment_book_detail"
-        tools:layout="@layout/fragment_book_detail" />
+        tools:layout="@layout/fragment_book_detail" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="author"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.example.booksapp.ui.main.AddBookFragment"
+        android:label="AddBookFragment" >
+        <action
+            android:id="@+id/action_addBookFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+    </fragment>
 </navigation>
