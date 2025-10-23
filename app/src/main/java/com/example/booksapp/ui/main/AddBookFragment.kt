@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.booksapp.R
-import com.example.booksapp.data.Book
+import com.example.booksapp.data.book.Book
 import com.example.booksapp.databinding.FragmentAddBookBinding
 import com.example.booksapp.viewmodel.BookViewModel
 import com.google.android.material.snackbar.Snackbar

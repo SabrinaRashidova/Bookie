@@ -3,7 +3,7 @@ package com.example.booksapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.booksapp.data.Book
+import com.example.booksapp.data.book.Book
 import com.example.booksapp.databinding.BookItemBinding
 
 class BookListAdapter(

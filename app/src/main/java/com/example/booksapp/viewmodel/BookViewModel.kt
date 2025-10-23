@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.booksapp.data.Book
+import com.example.booksapp.data.book.Book
 import com.example.booksapp.data.BookDatabase
-import com.example.booksapp.data.BookRepository
+import com.example.booksapp.data.book.BookRepository
 import kotlinx.coroutines.launch
 
 class BookViewModel(application: Application) : AndroidViewModel(application) {
