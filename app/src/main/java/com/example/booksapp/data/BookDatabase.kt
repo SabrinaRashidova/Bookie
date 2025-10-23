@@ -9,7 +9,7 @@ import com.example.booksapp.data.book.BookDao
 import com.example.booksapp.data.user.User
 import com.example.booksapp.data.user.UserDao
 
-@Database(entities = [Book::class, User::class], version = 1, exportSchema = false)
+@Database(entities = [Book::class, User::class], version = 2, exportSchema = false)
 abstract class BookDatabase: RoomDatabase() {
     abstract fun bookDao(): BookDao
     abstract fun userDao(): UserDao
