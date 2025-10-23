@@ -5,10 +5,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.booksapp.R
 import com.example.booksapp.adapter.BookListAdapter
 import com.example.booksapp.databinding.FragmentBookListBinding
 import com.example.booksapp.viewmodel.BookViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class BookListFragment : Fragment(R.layout.fragment_book_list) {
 
@@ -38,5 +41,43 @@ class BookListFragment : Fragment(R.layout.fragment_book_list) {
             findNavController().navigate(R.id.action_bookListFragment_to_addBookFragment)
         }
 
+        setupSwipeToDelete()
+    }
+
+    private fun setupSwipeToDelete(){
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
+            0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean = false
+
+            override fun onSwiped(
+                viewHolder: RecyclerView.ViewHolder,
+                direction: Int
+            ) {
+                val position = viewHolder.adapterPosition
+                val book = viewmodel.allBooks.value?.get(position)
+
+                if (book != null){
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setTitle("Delete Book")
+                        .setMessage("Are you sure you want to delete \"${book.title}\"?")
+                        .setPositiveButton("Yes") { _, _ ->
+                            viewmodel.delete(book)
+                        }
+                        .setNegativeButton("No") { dialog, _ ->
+                            dialog.dismiss()
+                            adapter.notifyItemChanged(position)
+                        }
+                        .setCancelable(false)
+                        .show()
+                }
+            }
+        }
+
+        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(binding.recyclerViewBooks)
     }
 }

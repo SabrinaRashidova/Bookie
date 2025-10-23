@@ -49,6 +49,9 @@
         <argument
             android:name="description"
             app:argType="string" />
+        <action
+            android:id="@+id/action_bookDetailFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addBookFragment"

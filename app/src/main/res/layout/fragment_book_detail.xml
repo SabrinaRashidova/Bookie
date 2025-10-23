@@ -1,32 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
+    android:background="@drawable/bg_bottom_wave"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvTitle"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/txtBookTitle"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book read"
+        android:letterSpacing="0.2"
+        android:textFontWeight="700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="Title"
-        android:layout_height="wrap_content"/>
+        android:textSize="28sp"
+        android:textFontWeight="700"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="@font/quicksand_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBookTitle" />
 
     <TextView
         android:id="@+id/tvAuthor"
-        android:textSize="20sp"
-        android:text="Author"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Author"
+        android:fontFamily="@font/quicksand_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#4D000000"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+        app:layout_constraintVertical_bias="0.142"
+        tools:layout_editor_absoluteX="24dp" />
 
     <TextView
         android:id="@+id/tvDescription"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="Book Description"
-        android:layout_marginTop="28dp"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/quicksand_light"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+        tools:layout_editor_absoluteX="16dp" />
+
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

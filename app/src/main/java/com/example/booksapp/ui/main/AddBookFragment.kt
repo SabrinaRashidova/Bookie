@@ -2,9 +2,7 @@ package com.example.booksapp.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.booksapp.R
@@ -24,18 +22,22 @@ class AddBookFragment : Fragment(R.layout.fragment_add_book) {
         _binding = FragmentAddBookBinding.bind(view)
 
         binding.btnSave.setOnClickListener {
-            val title = binding.etTitle.text.toString().trim()
-            val author = binding.etAuthor.text.toString().trim()
+            val title = binding.etTitle.text.toString().trim().uppercase()
+            val author = binding.etAuthor.text.toString().trim().uppercase()
             val desc = binding.etDescription.text.toString().trim()
 
             if (title.isNotBlank() && author.isNotBlank() && desc.isNotBlank()){
                 val book = Book(0,title = title, author = author,desc)
                 viewmodel.insert(book)
                 Snackbar.make(binding.root,"Book added successfully",Snackbar.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_addBookFragment_to_bookListFragment)
+                findNavController().popBackStack()
             }else{
                 Snackbar.make(binding.root,"Please fill all fields", Snackbar.LENGTH_SHORT).show()
             }
+        }
+
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

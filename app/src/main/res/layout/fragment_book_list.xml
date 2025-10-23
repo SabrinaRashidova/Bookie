@@ -45,6 +45,7 @@
             android:text="Book list"
             android:textSize="22sp"
             android:textStyle="bold"
+            android:fontFamily="@font/quicksand"
             android:textColor="#3A2A58"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
