@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center_horizontal"
-    android:background="@drawable/bg_bottom_wave">
+    android:background="@drawable/bg_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,11 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Book Add"
-            android:textSize="24sp"
+            android:letterSpacing="0.2"
+            android:textStyle="bold"
+            android:textColor="@color/light_dark"
+            android:fontFamily="@font/quicksand"
+            android:textSize="22sp"
             android:gravity="center"/>
     </LinearLayout>
 
@@ -45,6 +49,7 @@
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="@color/deepIndigo"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="8dp"
@@ -61,6 +66,7 @@
             android:id="@+id/etAuthor"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="@color/deepIndigo"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="8dp" />
@@ -78,6 +84,7 @@
             android:layout_height="200dp"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
+            android:textColor="@color/deepIndigo"
             android:layout_marginTop="8dp"
             android:inputType="textMultiLine"
             android:gravity="start|top"/>

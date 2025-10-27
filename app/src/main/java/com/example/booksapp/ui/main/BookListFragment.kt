@@ -13,7 +13,6 @@ import com.example.booksapp.adapter.BookListAdapter
 import com.example.booksapp.databinding.FragmentBookListBinding
 import com.example.booksapp.viewmodel.BookViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class BookListFragment : Fragment(R.layout.fragment_book_list) {
@@ -28,6 +27,15 @@ class BookListFragment : Fragment(R.layout.fragment_book_list) {
         _binding = FragmentBookListBinding.bind(view)
 
         viewmodel.allBooks.observe(viewLifecycleOwner){books ->
+            if (books.isEmpty()){
+                binding.ivEmptyList.visibility = View.VISIBLE
+                binding.txtEmpty.visibility = View.VISIBLE
+                binding.recyclerViewBooks.visibility = View.GONE
+            }else{
+                binding.ivEmptyList.visibility = View.GONE
+                binding.txtEmpty.visibility = View.GONE
+                binding.recyclerViewBooks.visibility = View.VISIBLE
+            }
             adapter = BookListAdapter(list = books){book ->
                 val action = BookListFragmentDirections
                     .actionBookListFragmentToBookDetailFragment(

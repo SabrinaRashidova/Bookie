@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="light_dark">#3A2A58</color>
     <color name="black">#FF000000</color>
     <color name="white">#F2FFFFFF</color>
     <color name="primaryColor">#7B7F9E</color>
@@ -7,5 +8,4 @@
     <color name="deepIndigo">#22215B</color>
     <color name="shimmerColor">#C2C2C2</color>
     <color name="light_green">#CBEDE5</color>
-    <color name="light_dark">#3A2A58</color>
 </resources>

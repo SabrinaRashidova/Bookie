@@ -60,6 +60,7 @@
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="12dp"
+            android:textColor="@color/deepIndigo"
             android:inputType="textEmailAddress" />
 
         <TextView
@@ -77,6 +78,7 @@
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="12dp"
+            android:textColor="@color/deepIndigo"
             android:inputType="textPassword" />
 
         <TextView
@@ -93,6 +95,7 @@
             android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
+            android:textColor="@color/deepIndigo"
             android:layout_marginTop="12dp"
             android:inputType="textPassword" />
     </LinearLayout>
