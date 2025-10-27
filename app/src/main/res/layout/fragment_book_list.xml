@@ -31,6 +31,44 @@
         android:translationX="-10dp"
         android:layout_marginTop="50dp" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="visible"
+        app:shimmer_auto_start="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+            <include layout="@layout/book_item_shimmer_effect" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content"
         android:layout_width="match_parent"

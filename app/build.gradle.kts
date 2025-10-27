@@ -62,4 +62,6 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
 }

@@ -5,4 +5,5 @@
     <color name="primaryColor">#7B7F9E</color>
     <color name="secondaryColor">#40B59F</color>
     <color name="deepIndigo">#22215B</color>
+    <color name="shimmerColor">#C2C2C2</color>
 </resources>

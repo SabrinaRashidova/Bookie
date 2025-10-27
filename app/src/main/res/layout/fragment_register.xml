@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:paddingHorizontal="24dp"
     android:background="#F9FAFA"
     tools:context=".ui.register.RegisterFragment">
 
@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/imageViewTop"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="28dp"
             android:scaleType="fitCenter"
             android:src="@drawable/top_img" />
@@ -45,37 +45,55 @@
             android:textColor="#1A237E"
             android:layout_marginBottom="28dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Login"
+            android:textColor="#1B1D28"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"/>
 
         <EditText
-            android:id="@+id/editTextLogin"
+            android:id="@+id/etLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Enter your email"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="12dp"
             android:inputType="textEmailAddress" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create password"
+            android:textColor="#1B1D28"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"/>
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Create Password"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:inputType="textPassword" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm password"
+            android:textColor="#1B1D28"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"/>
 
         <EditText
-            android:id="@+id/editTextConfirmPassword"
+            android:id="@+id/etConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Confirm Password"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:inputType="textPassword" />
     </LinearLayout>
 

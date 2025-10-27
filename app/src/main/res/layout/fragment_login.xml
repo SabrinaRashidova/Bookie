@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/imageViewTop"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="28dp"
             android:scaleType="fitCenter"
             android:src="@drawable/top_img" />
@@ -63,10 +63,9 @@
             android:layout_marginTop="24dp"/>
 
         <EditText
-            android:id="@+id/editTextLogin"
+            android:id="@+id/etLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Enter your email"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="8dp"
@@ -80,10 +79,9 @@
             android:layout_marginTop="12dp"/>
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Create Password"
             android:background="@drawable/edittext_bg"
             android:padding="12dp"
             android:layout_marginTop="8dp"
@@ -92,10 +90,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Submit"
+        android:text="Login"
         android:textColor="#fff"
         android:layout_marginTop="24dp"
         android:layout_above="@id/txt_register"
@@ -112,7 +110,5 @@
         android:textColor="#1B1D28"
         android:gravity="center"
         android:layout_alignParentBottom="true"/>
-
-
 
 </RelativeLayout>

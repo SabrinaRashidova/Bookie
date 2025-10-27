@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,8 @@ import com.example.booksapp.adapter.BookListAdapter
 import com.example.booksapp.databinding.FragmentBookListBinding
 import com.example.booksapp.viewmodel.BookViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class BookListFragment : Fragment(R.layout.fragment_book_list) {
 
@@ -34,7 +37,11 @@ class BookListFragment : Fragment(R.layout.fragment_book_list) {
                     )
                 findNavController().navigate(action)
             }
-            binding.recyclerViewBooks.adapter = adapter
+            viewLifecycleOwner.lifecycleScope.launch {
+                binding.recyclerViewBooks.adapter = adapter
+                binding.shimmerLayout.stopShimmer()
+                binding.shimmerLayout.visibility = View.GONE
+            }
         }
 
         binding.addBook.setOnClickListener {
