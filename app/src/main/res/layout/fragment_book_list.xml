@@ -83,7 +83,7 @@
             android:textSize="22sp"
             android:letterSpacing="0.1"
             android:visibility="gone"
-            android:text="Sorry there is not\n any books yet"/>
+            android:text="Sorry there is no\n any books yet"/>
 
         <ImageView
             android:id="@+id/iv_emptyList"

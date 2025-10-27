@@ -2,39 +2,42 @@ package com.example.booksapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.booksapp.data.book.Book
 import com.example.booksapp.databinding.BookItemBinding
 
 class BookListAdapter(
-    private val list: List<Book>,
     private val onItemClick: (Book) -> Unit
-    ): RecyclerView.Adapter<BookListAdapter.ViewHolder>(){
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
-        return ViewHolder(BookItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+) : ListAdapter<Book, BookListAdapter.ViewHolder>(DiffCallback()) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = BookItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding, onItemClick)
     }
 
-    override fun onBindViewHolder(
-        holder: ViewHolder,
-        position: Int
-    ) {
-        holder.onBind(list[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
-    override fun getItemCount(): Int  = list.size
+    inner class ViewHolder(
+        private val binding: BookItemBinding,
+        private val onItemClick: (Book) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    inner class ViewHolder(private val binding: BookItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun onBind(book: Book){
+        fun bind(book: Book) {
             binding.txtTitle.text = book.title
             binding.txtAuthor.text = book.author
-
-            binding.root.setOnClickListener {
-                onItemClick(book)
-            }
+            binding.root.setOnClickListener { onItemClick(book) }
         }
     }
 
+    class DiffCallback : DiffUtil.ItemCallback<Book>() {
+        override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean =
+            oldItem == newItem
+    }
 }

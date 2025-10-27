@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +12,6 @@ import com.example.booksapp.adapter.BookListAdapter
 import com.example.booksapp.databinding.FragmentBookListBinding
 import com.example.booksapp.viewmodel.BookViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.launch
 
 class BookListFragment : Fragment(R.layout.fragment_book_list) {
 
@@ -26,6 +24,17 @@ class BookListFragment : Fragment(R.layout.fragment_book_list) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentBookListBinding.bind(view)
 
+        adapter = BookListAdapter(){book ->
+            val action = BookListFragmentDirections
+                .actionBookListFragmentToBookDetailFragment(
+                    title = book.title,
+                    author = book.author,
+                    description = book.description
+                )
+            findNavController().navigate(action)
+        }
+        binding.recyclerViewBooks.adapter = adapter
+
         viewmodel.allBooks.observe(viewLifecycleOwner){books ->
             if (books.isEmpty()){
                 binding.ivEmptyList.visibility = View.VISIBLE
@@ -36,21 +45,13 @@ class BookListFragment : Fragment(R.layout.fragment_book_list) {
                 binding.txtEmpty.visibility = View.GONE
                 binding.recyclerViewBooks.visibility = View.VISIBLE
             }
-            adapter = BookListAdapter(list = books){book ->
-                val action = BookListFragmentDirections
-                    .actionBookListFragmentToBookDetailFragment(
-                        title = book.title,
-                        author = book.author,
-                        description = book.description
-                    )
-                findNavController().navigate(action)
-            }
-            viewLifecycleOwner.lifecycleScope.launch {
-                binding.recyclerViewBooks.adapter = adapter
-                binding.shimmerLayout.stopShimmer()
-                binding.shimmerLayout.visibility = View.GONE
-            }
+
+            adapter.submitList(books)
+
+            binding.shimmerLayout.stopShimmer()
+            binding.shimmerLayout.visibility = View.GONE
         }
+
 
         binding.addBook.setOnClickListener {
             findNavController().navigate(R.id.action_bookListFragment_to_addBookFragment)

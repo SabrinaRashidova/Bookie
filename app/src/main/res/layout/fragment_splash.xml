@@ -9,10 +9,11 @@
     tools:context=".ui.SplashFragment">
 
     <TextView
+        android:id="@+id/txt_bookie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bookie"
-        android:textSize="32sp"
+        android:textSize="40sp"
+        android:letterSpacing="0.1"
         android:textColor="@color/secondaryColor"
         android:fontFamily="@font/quicksand"
         android:textStyle="bold" />

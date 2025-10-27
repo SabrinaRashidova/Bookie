@@ -22,15 +22,26 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSplashBinding.bind(view)
 
+        showTextAnimation("Bookie")
         lifecycleScope.launch {
-            delay(2000)
-
+            delay(2500)
             viewModel.checkLoggedInUser { loggedIn ->
                 if (loggedIn) {
                     findNavController().navigate(R.id.action_splashFragment_to_bookListFragment)
                 } else {
                     findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
                 }
+            }
+        }
+    }
+
+    private fun showTextAnimation(text: String){
+        binding.txtBookie.text = ""
+        lifecycleScope.launch {
+            delay(200)
+            for (char in text) {
+                binding.txtBookie.append(char.toString())
+                delay(200)
             }
         }
     }
